@@ -1,0 +1,20 @@
+#!/usr/bin/python
+
+import sys,os
+from optparse import OptionParser
+from optparse import OptionGroup
+
+
+
+parser = OptionParser(usage="usage: %prog [options]");
+parser.add_option("-i", "--infile",  dest="infile", help="input");
+group = OptionGroup(parser, "Group1","First Group of parameters");
+group.add_option("-o", "--outfile", dest="outfile", help="output");
+
+if(len(sys.argv) == 1):
+  parser.print_help()
+  sys.exit(1)
+
+parser.add_option_group(group);
+(options, args) = parser.parse_args();
+
